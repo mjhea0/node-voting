@@ -1,0 +1,37 @@
+/* add custom styles */
+
+h1 {
+  font-size: 6rem;
+  border-bottom: 1px dashed grey;
+  color: purple;
+}
+
+.header p {
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.ballot {
+  display: block;
+  font-size: 10rem;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+div.container {
+  margin-top: 10rem;
+}
+
+.card {
+  background-color: #ddd;
+  text-align: center;
+  border-radius: 2rem;
+}

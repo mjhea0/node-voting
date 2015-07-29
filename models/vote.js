@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Vote = new Schema({
-  votes: {type: String},
+  votes: {},
 });
 
 module.exports = mongoose.model('votes', Vote);
