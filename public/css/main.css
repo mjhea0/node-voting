@@ -12,7 +12,6 @@ h1 {
 }
 
 .ballot {
-  display: block;
   font-size: 10rem;
 }
 
@@ -34,4 +33,13 @@ div.container {
   background-color: #ddd;
   text-align: center;
   border-radius: 2rem;
+}
+
+.hotdog {
+  display: none;
+}
+
+#ps {
+  color: #999;
+  font-size: 5rem;
 }

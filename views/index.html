@@ -2,47 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Vote</title>
+    <title>Vote!</title>
 
-    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
-  <body >
+  <body>
 
-  <div class="container header">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <h1>Quiz Master</h1>
-        <p>Choose wisely, you can only vote once...</p>
+    <div class="container header">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <h1>Quiz Master</h1>
+          <p>Choose wisely, you can only vote once...</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-    <div class="row ballot" id="ballot">
-    <div class="col-sm-12 col-md-4">
-    <div class="card">
-      <p id="ben"><a href="">Ben</a></p>
+     <div class="container hotdog">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <p id="ps">Thanks for Voting!<br>ps: a hotdog is not a sandwich</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-4">
-    <div class="card">
-      <p id="charlie"><a href="">Charlie</a></p>
+
+    <div class="container">
+      <div class="row ballot" id="ballot">
+        {% if data %}
+          {% for person in data %}
+            <div class="col-sm-12 col-md-4">
+              <div class="card">
+                <p id="{{ person.name }}">
+                  <a href="">{{ person.name }}</a>
+                  <br>
+                  <span class="{{ person.name }}-count">{{ person.count }}</span>
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
-    <div class="col-sm-12 col-md-4">
-    <div class="card">
-      <p id="robbie"><a href="">Robbie</a></p>
-    </div>
-    </div>
 
-    </div>
-  </div>
 
     <!-- script links -->
-    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

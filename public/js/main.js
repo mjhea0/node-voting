@@ -1,26 +1,28 @@
 $(document).on('ready', function() {
 
 
-  var count = {
-    charlie : 0,
-    robbie  : 0,
-    ben : 0
-  }
+  $('p').on('click', function(e){
 
-  $("p").on("click", function(e){
     e.preventDefault();
-    var person = this.id
-    count[person] += 1;
-    // $(".hotdog").show();
-    // console.log(count)
+
+    var personName = this.id
+    var personCount = parseInt($('.'+personName+'-count').text())
+
+    var payload = {
+      name: personName,
+      count: personCount += 1
+    };
+
+    console.log(payload)
+
     $.ajax({
       type: 'POST',
       url: '/votes',
-      data: count
+      data: payload
     })
     .done(function(data) {
       console.log(data)
-      $("#ballot").hide();
+      $('#ballot').hide();
       $('.hotdog').show();
     })
 

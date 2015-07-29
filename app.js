@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var swig = require('swig');
+var Vote = require('./models/vote');
 
 var routes = require('./routes/index');
 
@@ -19,6 +20,32 @@ app.set('view engine', 'html');
 
 // mongo
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/g11-votes");
+
+// seed database
+Vote.find({}, function(err, documents) {
+
+  if(documents.length === 0){
+
+    var countArray = [
+      { name: 'charlie', count: 0 },
+      { name: 'ben', count: 0 },
+      { name: 'robbie', count: 0 }
+    ];
+
+    for (var i = 0; i < countArray.length; i++) {
+       var data = new Vote(
+        {
+          name: countArray[i].name,
+          count: countArray[i].count,
+        }
+      );
+      data.save();
+    }
+    console.log('Database Seeded!');
+  }
+
+});
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

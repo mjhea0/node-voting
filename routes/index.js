@@ -3,26 +3,15 @@ var router = express.Router();
 var Vote = require('../models/vote');
 
 router.get('/', function(req, res, next) {
-  Vote.findOne({}, function(err, data) {
+  Vote.find({}, function(err, data) {
     console.log(data)
-    res.render('index', data);
+    res.render('index', {data: data});
   });
 });
 
-// router.get('/votes', function(req, res, next) {
-//   Vote.find({}, function(err, data) {
-//     if (err) {
-//       return next(err);
-//     } else {
-//       return res.send(data);
-//     }
-//   });
-// });
-
 router.post('/votes', function(req, res) {
-  console.log(req.body)
-  Vote.findOneAndUpdate({}, req.body, function(err, results) {
-    console.log(results)
+  console.log(req.body['name'])
+  Vote.findOneAndUpdate({'name':req.body['name']}, {'count':req.body['count']}, function(err, results) {
     if (err) {
       return next(err);
     } else {
