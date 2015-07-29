@@ -16,7 +16,7 @@ app.set('view engine', 'jade');
 
 
 // mongo
-mongoose.connect("mongodb://localhost/g11-votes" || process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/g11-votes");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
