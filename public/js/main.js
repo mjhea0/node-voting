@@ -5,15 +5,15 @@ $(document).on('ready', function() {
 
     e.preventDefault();
 
-    var personName = this.id
-    var personCount = parseInt($('.'+personName+'-count').text())
+    var personName = this.id;
+    var personCount = parseInt($('.'+personName+'-count').text());
 
     var payload = {
       name: personName,
       count: personCount += 1
     };
 
-    console.log(payload)
+    console.log(payload);
 
     $.ajax({
       type: 'POST',
@@ -21,10 +21,10 @@ $(document).on('ready', function() {
       data: payload
     })
     .done(function(data) {
-      console.log(data)
+      console.log(data);
       $('#ballot').hide();
       $('.hotdog').show();
-    })
+    });
 
   });
 
